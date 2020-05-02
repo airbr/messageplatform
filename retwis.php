@@ -87,6 +87,8 @@ function strElapsed($t) {
 }
 
 function showPost($id) {
+    global $User;
+
     $r = redisLink();
     $post = $r->hgetall("post:$id");
     if (empty($post)) return false;
@@ -97,6 +99,10 @@ function showPost($id) {
     $userlink = "<a class=\"username\" href=\"profile.php?u=".urlencode($username)."\">".utf8entities($username)."</a>";
 
     echo('<div class="post">'.$userlink.' '.utf8entities($post['body'])."<br>");
+    // If user owns post show delete link
+    if ($userid == $User['id']){
+    echo('<a class=\'button\' style=\'margin-right: 15px; \' href=\'delete.php?post='.$id.'\'>delete</a>');
+    }    
     echo('<i>posted '.$elapsed.' ago via web</i></div>');
     return true;
 }

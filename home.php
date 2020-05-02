@@ -6,6 +6,8 @@ if (!isLoggedIn()) {
 }
 include("header.php");
 $r = redisLink();
+
+
 ?>
 <div id="postform">
 <form method="POST" action="post.php">

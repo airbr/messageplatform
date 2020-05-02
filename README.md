@@ -1,9 +1,14 @@
 
---
+# Redis Message Platform
 
-#TODO:
 
-Take this PHP/Redis starter app and make it a little more polished.
+## TODO:
+
+This project is a plan to take this PHP/Redis starter app and make it a little more polished.
+
+Done so far:
+
+* Added the ability to delete messages. 
 
 Ideas?
 1. Give the application a mobile redesign

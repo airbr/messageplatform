@@ -1,3 +1,7 @@
+This is the beginning of my fork. 
+
+--
+
 Retwis is the Redis Hello World. A minimal Twitter-style social network clone
 written using Redis and PHP. The source code is designed to be very simple and
 at the same time to show different Redis data structures.

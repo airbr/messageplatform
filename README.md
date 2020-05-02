@@ -1,6 +1,21 @@
-This is the beginning of my fork. 
 
 --
+
+#TODO:
+
+Take this PHP/Redis starter app and make it a little more polished.
+
+Ideas?
+1. Give the application a mobile redesign
+2. Deploy with docker to Elastic Beanstalk
+3. Add a Hearts/likes feature
+4. Hash the passwords
+
+-- 
+
+
+
+## Original ReadMe
 
 Retwis is the Redis Hello World. A minimal Twitter-style social network clone
 written using Redis and PHP. The source code is designed to be very simple and

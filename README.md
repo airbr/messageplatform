@@ -1,24 +1,20 @@
 
 # Redis Message Platform
 
+Taking this PHP/Redis starter app courtesy of [redis.io](redis.io) and making it a little more polished.
 
-## TODO:
+Features added so far:
 
-This project is a plan to take this PHP/Redis starter app and make it a little more polished.
-
-Done so far:
-
-* Added the ability to delete messages. 
+* Added the ability to for a user to delete their own messages. 
+* Took care to prevent XSS but now URLS in posts are converted to hyperlinks with use of a [small library](https://github.com/kwi-dk/UrlLinker).
+* Re-oriented the basic styling to allow for basic mobile support i.e `<meta name="viewport" content="width=device-width, initial-scale=1.0">` and VW units rather than pixels.
 
 Ideas?
-1. Give the application a mobile redesign
-2. Deploy with docker to Elastic Beanstalk
-3. Add a Hearts/likes feature
-4. Hash the passwords
+1. Deploy with docker to Elastic Beanstalk
+2. Add a Hearts/likes feature
+3. Hash the passwords
 
 -- 
-
-
 
 ## Original ReadMe
 

@@ -3,7 +3,7 @@
 <head>
 <meta content="text/html; charset=UTF-8" http-equiv="content-type">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Retwis - Example Twitter clone based on the Redis Key-Value DB</title>
+<title>Message Platform</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -11,5 +11,13 @@
 <div id="header">
 <!-- <a href="/"><img style="border:none" src="logo.png" width="192" height="85" alt="Retwis"></a> -->
 <h3>Message Platform</h3>
+<?php if(isLoggedIn()): ?>
+<div id="homeinfobox">
+$r = redisLink();
+?>
+<?=$r->zcard("followers:".$User['id'])?> followers<br>
+<?=$r->zcard("following:".$User['id'])?> following<br>
+</div>
+<?php endif; ?>
 <? include("navbar.php") ?>
 </div>

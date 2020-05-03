@@ -1,7 +1,7 @@
 <div id="welcomebox">
 <div id="registerbox">
-<h2>Register!</h2>
-<b>Want to try Retwis? Create an account!</b>
+<h2>Sign up</h2>
+<b>Want to try Message Platform? Create an account!</b>
 <form method="POST" action="register.php">
 <table>
 <tr>
@@ -28,11 +28,4 @@
 </tr></table>
 </form>
 </div>
-Hello! Retwis is a very simple clone of <a href="http://twitter.com">Twitter</a>, as a demo for the <a href="http://code.google.com/p/redis/">Redis</a> key-value database. Key points:
-<ul>
-<li>Redis is a key-value DB, and it is <b>the only DB used</b> by this application, no MySQL or alike at all.</li>
-<li>This application can scale horizontally since there is no point where the whole dataset is needed at the same point. With consistent hashing (not implemented in the demo to make it simpler) different keys can be stored in different servers.</li>
-<li>The source code of this application, and a tutorial explaining its design, is available <a href="http://code.google.com/p/redis/wiki/TwitterAlikeExample">here</a>.
-<li>PHP and the Redis server communicate using the PHP Redis library client written by Ludovico Mangocavallo and included inside the Redis tar.gz distribution.
-</ul>
 </div>

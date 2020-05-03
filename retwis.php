@@ -1,5 +1,6 @@
 <?
 require 'Predis/Autoloader.php';
+require 'urllinker.php';
 Predis\Autoloader::register();
 
 function getrand() {
@@ -97,8 +98,8 @@ function showPost($id) {
     $username = $r->hget("user:$userid","username");
     $elapsed = strElapsed($post['time']);
     $userlink = "<a class=\"username\" href=\"profile.php?u=".urlencode($username)."\">".utf8entities($username)."</a>";
-
-    echo('<div class="post">'.$userlink.' '.utf8entities($post['body'])."<br>");
+    
+    echo('<div class="post">'.$userlink.' '.htmlEscapeAndLinkUrls(utf8entities($post['body']))."<br>");
     // If user owns post show delete link
     if ($userid == $User['id']){
     echo('<a class=\'button\' style=\'margin-right: 15px; \' href=\'delete.php?post='.$id.'\'>delete</a>');

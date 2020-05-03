@@ -6,7 +6,7 @@ BODY {
 
 #page {
     margin: 0px;
-    width:900px;
+    width: 95vw;
     margin-left: auto;
     margin-right: auto;
     padding:10px;
@@ -17,16 +17,22 @@ BODY {
     border-radius:5px;
 }
 
+textarea {
+    width: 80vw;
+    max-width: 80vw;
+    min-height: 120px;
+    font-size: 14px;
+}
+
 #page h2 {
     color:#0f2a44;
     font-weight:bold;
 }
 
 #header {
-    width:885px;
+    width:95vw;
     height:85px;
     border-bottom: 1px #aaa solid;
-    padding:5px;
     margin-bottom:10px;
     position:relative;
 
@@ -117,7 +123,6 @@ font-size:12px;
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
     border-radius:5px;
-    position: absolute;
     right:5px;
     top:5px;
     background-color: #ccc;
@@ -128,17 +133,15 @@ font-size:12px;
 }
 
 #welcomebox{
-    width:890px;
     height:450px;
     padding-top:10px;
     position:relative;
     font-size:14px;
 }
 #registerbox{
-    width:400px;
+    max-width:400px;
     height:400px;
     background-color:#e3e8e4;
-    float:right;
     padding:5px;
     -moz-border-radius:5px;
     -webkit-border-radius:5px;

@@ -1,5 +1,9 @@
 <?
 include("retwis.php");
+if (!isLoggedIn()) {
+    header("Location: index.php");
+    exit;
+}
 include("header.php");
 ?>
 <h2>Timeline</h2>

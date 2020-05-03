@@ -13,6 +13,7 @@
 <h3>Message Platform</h3>
 <?php if(isLoggedIn()): ?>
 <div id="homeinfobox">
+<?php    
 $r = redisLink();
 ?>
 <?=$r->zcard("followers:".$User['id'])?> followers<br>

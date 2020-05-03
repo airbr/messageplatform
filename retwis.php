@@ -97,7 +97,10 @@ function showPost($id) {
     $userid = $post['user_id'];
     $username = $r->hget("user:$userid","username");
     $elapsed = strElapsed($post['time']);
-    $userlink = "<a class=\"username\" href=\"profile.php?u=".urlencode($username)."\">".utf8entities($username)."</a>";
+    $userlink = "<a class=\"username\" href=\"profile.php?u=".urlencode($username)."\"><div class=\"tooltip\">
+    ".utf8entities($username)."
+    <span class=\"tooltiptext\">Click to view ".utf8entities($username)."</span>
+  </div></a>";
     
     echo('<div class="post">'.$userlink.' '.htmlEscapeAndLinkUrls(utf8entities($post['body']))."<br>");
     // If user owns post show delete link
@@ -106,6 +109,28 @@ function showPost($id) {
     }    
     echo('<i>posted '.$elapsed.' ago via web</i></div>');
     return true;
+}
+
+// Inefficient but works. TODO: Refactor
+function showFollowedUserPosts() {
+    global $User;
+    $r = redisLink();
+    $userid = $User['id'];
+    $start = 0;
+    $count = 20;
+    $followers = $r->ZRANGE("following:".$User['id'],0,-1);
+    if (!$followers){
+        echo('...You follow no one');
+        return false;
+    }
+    foreach ($followers as $f) {
+       $followerposts[] = $r->lrange("posts:$f",$start,$start+$count); 
+    }
+    $followerposts = array_merge(...$followerposts);
+    arsort($followerposts);
+    foreach($followerposts as $fp) {
+        showPost($fp);
+    }
 }
 
 function showUserPosts($userid,$start,$count) {

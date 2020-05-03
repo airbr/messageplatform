@@ -12,12 +12,13 @@ include("header.php");
 showLastUsers();
 ?>
 
-<div>
-<i>Last 20 messages from people you follow in Chronological order! amazing!</i><br>
-<?
-showFollowedUserPosts();
-?>
-
+<div onclick="toggleDiv('follower20')">
+    <i>(click to see) Last 20 messages from people you follow in Chronological order! amazing!</i><br>
+    <div id="follower20" style="display: none;">
+    <?
+    showFollowedUserPosts();
+    ?>
+    </div>
 </div>
 
 <br>

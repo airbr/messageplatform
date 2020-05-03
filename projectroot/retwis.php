@@ -1,5 +1,5 @@
 <?
-require 'Predis/Autoloader.php';
+require '../Predis/Autoloader.php';
 require 'urllinker.php';
 Predis\Autoloader::register();
 

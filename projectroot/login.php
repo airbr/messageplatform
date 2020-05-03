@@ -7,7 +7,7 @@ if (!gt("username") || !gt("password"))
 
 # The form is ok, check if the username is available
 $username = gt("username");
-$password = gt("password");
+$password = hash('sha512', gt("password"));
 $r = redisLink();
 $userid = $r->hget("users",$username);
 if (!$userid)

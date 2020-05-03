@@ -20,7 +20,7 @@ $authsecret = getrand();
 $r->hset("users",$username,$userid);
 $r->hmset("user:$userid",
     "username",$username,
-    "password",$password,
+    "password",hash('sha512', $password),
     "auth",$authsecret);
 $r->hset("auths",$authsecret,$userid);
 

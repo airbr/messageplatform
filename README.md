@@ -8,14 +8,16 @@ Features added so far:
 * Added the ability to for a user to delete their own messages. 
 * Took care to prevent XSS but now URLS in posts are converted to hyperlinks with use of a [small library](https://github.com/kwi-dk/UrlLinker).
 * Re-oriented the basic styling to allow for basic mobile support i.e `<meta name="viewport" content="width=device-width, initial-scale=1.0">` and VW units rather than pixels.
-* Added a chronological feature to the timeline, initial.
+* Added a chronological feature to the timeline to see posts from people you follow
+* Allow a user to set their background color
+* Hash the passwords with SHA512 so that they are not stored in cleartext in Redis
 
 
 Ideas?
 1. Deploy with docker to Elastic Beanstalk
 2. Add a Hearts/likes feature
-3. Hash the passwords
-4. Allow a user to set their background color
+3. Set Messages to disappear, allow this to be dynamically set by the user, making used of `expireat` in Predis
+4. Create ability to Direct Message between users
 -- 
 
 ## Original ReadMe

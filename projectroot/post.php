@@ -10,6 +10,7 @@ $r = redisLink();
 $postid = $r->incr("next_post_id");
 $status = str_replace("\n"," ",gt("status"));
 $r->hmset("post:$postid","user_id",$User['id'],"time",time(),"body",$status);
+$r->expireat("post:$postid", strtotime("+1 hour"));
 $followers = $r->zrange("followers:".$User['id'],0,-1);
 $followers[] = $User['id']; /* Add the post to our own posts too */
 

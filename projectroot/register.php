@@ -17,10 +17,13 @@ if ($r->hget("users",$username))
 # Everything is ok, Register the user!
 $userid = $r->incr("next_user_id");
 $authsecret = getrand();
+$salt = getrand();
+
 $r->hset("users",$username,$userid);
 $r->hmset("user:$userid",
     "username",$username,
-    "password",hash('sha512', $password),
+    "password",hash('sha512', $password.$salt),
+    "salt", $salt,
     "auth",$authsecret);
 $r->hset("auths",$authsecret,$userid);
 

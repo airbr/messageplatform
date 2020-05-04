@@ -7,13 +7,15 @@ if (!gt("username") || !gt("password"))
 
 # The form is ok, check if the username is available
 $username = gt("username");
-$password = hash('sha512', gt("password"));
+$rawpassword = gt("password");
 $r = redisLink();
 $userid = $r->hget("users",$username);
 if (!$userid)
     goback("Wrong username or password");
+$salt = $r->hget("user:$userid","salt");
 $realpassword = $r->hget("user:$userid","password");
-if ($realpassword != $password)
+
+if ($realpassword != hash('sha512', $rawpassword.$salt))
     goback("Wrong useranme or password");
 
 # Username / password OK, set the cookie and redirect to index.php
